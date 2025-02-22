@@ -1,3 +1,5 @@
+let botaoReiniciarAtivo = false;
+
 function gerarNumeroAleatorio(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -19,7 +21,18 @@ function sortear(){
     }
 
     resultado.textContent = `Números sorteados: ${listaNumeros}`;
+
+
+    if (!botaoReiniciarAtivo) {
+        
+        alteraStatusBotaoReiniciar();
+        botaoReiniciarAtivo = true; // Atualiza o estado do botão
+        console.log(botaoReiniciarAtivo);
+    }
 }
+
+
+
 
 function alteraStatusBotaoReiniciar(){
     let alteraBotaoReiniciar = document.getElementById('btn-reiniciar');
@@ -43,4 +56,5 @@ function reiniciar(){
     document.getElementById("resultado").textContent = "Números sorteados:  nenhum até agora";
     
     alteraStatusBotaoReiniciar();
+    botaoReiniciarAtivo = false;
 }
