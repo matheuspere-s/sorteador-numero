@@ -20,3 +20,12 @@ function sortear(){
 
     resultado.textContent = `Números sorteados: ${listaNumeros}`;
 }
+
+
+function reiniciar(){
+    document.getElementById('quantidade').value = "";
+    document.getElementById('de').value = "";
+    document.getElementById('ate').value = "";
+    document.getElementById("resultado").textContent = "Números sorteados:  nenhum até agora";
+    
+}
