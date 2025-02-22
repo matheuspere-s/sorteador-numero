@@ -9,18 +9,23 @@ function sortear(){
     let de = parseInt(document.getElementById('de').value);
     let ate = parseInt(document.getElementById('ate').value);
     let listaNumeros = [];
+    let numero;
     let resultado = document.getElementById("resultado");
 
-    for(var i = 0; i < quantidade; i++){
-        numero = gerarNumeroAleatorio(de, ate);
-
-        while(listaNumeros.includes(numero)){
+    if (quantidade > ate || ate < de || ((quantidade > 1) && (de > 1) && (ate > 1))){
+        resultado.textContent = "Erro! Valores inválidos. Digite novamente.";
+    }else{
+        for(var i = 0; i < quantidade; i++){
             numero = gerarNumeroAleatorio(de, ate);
+    
+            while(listaNumeros.includes(numero)){
+                numero = gerarNumeroAleatorio(de, ate);
+            }
+            listaNumeros.push(numero);
         }
-        listaNumeros.push(numero);
+        resultado.textContent = `Números sorteados: ${listaNumeros}`;
     }
-
-    resultado.textContent = `Números sorteados: ${listaNumeros}`;
+    
 
 
     if (!botaoReiniciarAtivo) {
@@ -29,6 +34,7 @@ function sortear(){
         botaoReiniciarAtivo = true; // Atualiza o estado do botão
         console.log(botaoReiniciarAtivo);
     }
+    
 }
 
 
