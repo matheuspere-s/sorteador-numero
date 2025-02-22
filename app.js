@@ -21,6 +21,20 @@ function sortear(){
     resultado.textContent = `Números sorteados: ${listaNumeros}`;
 }
 
+function alteraStatusBotaoReiniciar(){
+    let alteraBotaoReiniciar = document.getElementById('btn-reiniciar');
+    if ( alteraBotaoReiniciar.classList.contains("container__botao-desabilitado")){
+        alteraBotaoReiniciar.classList.remove("container__botao-desabilitado");
+        alteraBotaoReiniciar.classList.add("container__botao"); 
+        alteraBotaoReiniciar.removeAttribute('disabled');
+    }else{
+        alteraBotaoReiniciar.classList.remove("container__botao");
+        alteraBotaoReiniciar.classList.add("container__botao-desabilitado");
+        alteraBotaoReiniciar.setAttribute('disabled', 'true');
+    }
+    
+}
+
 
 function reiniciar(){
     document.getElementById('quantidade').value = "";
@@ -28,4 +42,5 @@ function reiniciar(){
     document.getElementById('ate').value = "";
     document.getElementById("resultado").textContent = "Números sorteados:  nenhum até agora";
     
+    alteraStatusBotaoReiniciar();
 }
